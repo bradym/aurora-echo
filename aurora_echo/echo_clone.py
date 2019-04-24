@@ -139,7 +139,7 @@ def create_clone_cluster_and_instance(clone_params: dict, instance_params: dict,
 @click.option('--db-parameter-group-name', '-pgn')
 @click.option('--suffix', '-sf', default=None)
 def clone(aws_account_number: str, region: str, source_cluster_name: str, managed_name: str, db_subnet_group_name: str, db_instance_class: str,
-          engine: str, availability_zone: str, vpc_security_group_id: list, tag: list, minimum_age_hours: int, interactive: bool, db_parameter_group_name: str, suffix: str):
+          engine: str, availability_zone: str, vpc_security_group_id: list, tag: list, minimum_age_hours: float, interactive: bool, db_parameter_group_name: str, suffix: str):
     click.echo('{} Starting aurora-echo for {}'.format(log_prefix(), managed_name))
     util = EchoUtil(region, aws_account_number)
     if not util.instance_too_new(managed_name, minimum_age_hours):
